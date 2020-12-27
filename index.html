@@ -11,6 +11,7 @@
 </head>
 
 <body style="height:99%">
+	<!--  onload="checkMobile()" -->
 	<div class="right-side">
 		<div class="right-side-wrap">
 
@@ -27,9 +28,6 @@
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
-							<li>
-								<a style="color:#000000" href="#">הצבעה באתר</a><br />
-							</li>
 							<li>
 								<a style="color:#000000" href="http://kerendanielle.org/activity/%D7%A4%D7%A8%D7%A1-%D7%93%D7%A0%D7%99%D7%90%D7%9C%D7%99/">אודות 'פרס דניאלי'</a><br />
 							</li>
@@ -48,8 +46,6 @@
 
 
 			<div class="links none-mobile" style="text-align:center;">
-				<a style="color:#000000" href="#">ההצבעה באתר</a><br />
-				<img src="images/Line 2.png" /><br />
 				<a style="color:#000000" href="http://kerendanielle.org/activity/%D7%A4%D7%A8%D7%A1-%D7%93%D7%A0%D7%99%D7%90%D7%9C%D7%99/">אודות 'פרס דניאלי'</a><br />
 				<img src="images/Line 2.png" /><br />
 				<a style="color:#000000" ng-class="{'active-link':contactUs}" ng-click="firstPage=false;contactUs=true;">צור קשר</a>
@@ -70,9 +66,13 @@
 	</div>
 	<div class="left-side">
 		<!-- style="background-image:url('images/תודה סיום 1.jpg')" -->
-		<div style="height: 100%;" ng-if="firstPage">
+		<div class="none-mobile" id="toDesktop" style="height: 100%;">
 			<img src="images/תודה סיום 1.jpg" style="width: 100%;height: 100%;" />
-			<img src="images/כפתור.png" style="display: inline-block;margin-top: -222px;margin-right: 592px;" />
+			<img src="images/כפתור.png" style="display: inline-block;margin-top: -222px;margin-right: 430px;" />
+		</div>
+		<div class="none-desktop" id="toMobile" style="height: 100%;">
+			<img src="images/מובייל תודה.jpg" style="width: 100%;height: 100%;" />
+			<img src="images/כפתור מובייל.png" style="display: inline-block;margin-top: -320px;margin-right: 240px;width: 55%;" />
 		</div>
 
 		<!--<div class="back-gray-wrap" style="padding: 0 37px;" ng-if="contactUs">
@@ -103,5 +103,25 @@
 
 		</div>-->
 	</div>
+	<script>
+		function checkMobile() {
+			var isMobile = (navigator.userAgent.match(/Android/i)
+				|| navigator.userAgent.match(/webOS/i)
+				|| navigator.userAgent.match(/iPhone/i)
+				|| navigator.userAgent.match(/iPad/i)
+				|| navigator.userAgent.match(/iPod/i)
+				|| navigator.userAgent.match(/BlackBerry/i)
+				|| navigator.userAgent.match(/Windows Phone/i)
+			) ? true : false;
+			if (isMobile == true) {
+				document.getElementById("toMobile").style.display = "visible";
+				document.getElementById("toDesktop").style.display = "none";
+			}
+			else {
+				document.getElementById("toMobile").style.display = "none";
+				document.getElementById("toDesktop").style.display = "visible";
+			}
+		}
+	</script>
 </body>
 </html>

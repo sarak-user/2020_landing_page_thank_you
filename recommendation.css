@@ -1420,7 +1420,7 @@ a {
 
 	.left-side {
 		width: 100%;
-		height: auto;
+		height: 97.6%;
 	}
 
 	.bg-body {
@@ -1503,7 +1503,8 @@ a {
 	.logo-first-page {
 		height: 172px;
 	}
-		.circle-next {
+
+	.circle-next {
 		display: block;
 		margin: auto;
 		transform: scale(0.8);
